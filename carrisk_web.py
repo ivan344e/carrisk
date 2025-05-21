@@ -8,28 +8,21 @@ import sklearn
 # Configuración de la página (debe ser la primera instrucción)
 ############################################################################################################################
 
-st.set_page_config(page_title="Clasificador para riesgo de vehiculos", layout="centered")
-    # Título principal centrado
 # Función para cargar imágenes locales como base64
 def load_image_as_base64(file_path):
     with open(file_path, "rb") as f:
         return base64.b64encode(f.read()).decode()
-
 # Convertir imagen a base64
 image_base64 = load_image_as_base64("imagen.png")
+
+st.set_page_config(page_title="Clasificador para predecir el riesgo al conducir un vehiculo", layout="centered")
+    # Título principal centrado
 
 # HTML con la imagen convertida
 st.markdown(
     f"""
-    <style>
-    .top-right {{
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    }}
-    </style>
-    <div class="top-right">
-        <img src="data:image/png;base64,{image_base64}" alt="Logo" width="150">
+    <div style="text-align: center;">
+        <img src="data:image/png;base64,{image_base64}" alt="Logo" width="250">
     </div>
     """,
     unsafe_allow_html=True
